@@ -23,14 +23,14 @@ void print(int array[], int size)
 
 int main()
 {
-	const int test_num = 10;
+	const int test_num = 100;
 	int arr[test_num];
 	for(int i=0; i< test_num; i++)
 	{
 		arr[i] = rand()%test_num;
 	}
 	print(arr, test_num);
-	void (*Sort)(int*, int) = QuickSort; 
+	void (*Sort)(int*, int) = QuickSort2; 
 	//SelectSort(arr, test_num);
 	//BubbleSort(arr, test_num);
 	Sort(arr, test_num);
