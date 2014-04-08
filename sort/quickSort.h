@@ -68,6 +68,7 @@ void QuickSort2(int* array, int size)
 }
 */
 
+/*
 void QuickSort2(int* array, int size)
 {
 	if(size <= 1)
@@ -99,4 +100,36 @@ void QuickSort2(int* array, int size)
 	QuickSort2(array, R-array);
 	QuickSort2(R+1, size-(R-array)-1);
 }
+*/
 
+void QuickSort2(int* array, int size)
+{
+	if(size <= 1)
+	{
+		return;
+	}
+	if(size == 2)
+	{
+		if(array[0]>array[1])
+		{
+			swap(array[0], array[1]);
+		}
+	}
+	int* comp = array;
+	swap(*comp, array[size/2]);
+	int* L = comp+1;
+	int* R = array+size-1;
+
+	while(L<R)
+	{
+		while(*L<=*comp && L!=R) ++L;
+		while(*R>*comp && L<=R) --R;
+		if(L<R)
+		{
+			swap(*L, *R);
+		}
+	}
+	swap(*comp,*R);
+	QuickSort2(array,R-array);
+	QuickSort2(R+1, size-1-(R-array));
+}
